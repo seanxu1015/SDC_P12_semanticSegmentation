@@ -102,14 +102,8 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
         kernel_initializer=tf.random_normal_initializer(stddev=0.01),
         kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
-    tf.Print(vgg_layer7_out, [tf.shape(vgg_layer7_out)[1:3]])
-    tf.Print(vgg_layer4_out, [tf.shape(vgg_layer4_out)[1:3]])
-    tf.Print(vgg_layer3_out, [tf.shape(vgg_layer3_out)[1:3]])
-    tf.Print(layer4_skip, [tf.shape(layer4_skip)[1:3]])
-    tf.Print(layer3_skip, [tf.shape(layer3_skip)[1:3]])
-    tf.Print(layer3_upsample, [tf.shape(layer3_upsample)[1:3]])
-
     return layer3_upsample
+
 tests.test_layers(layers)
 
 
